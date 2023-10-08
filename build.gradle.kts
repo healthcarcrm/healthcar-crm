@@ -1,14 +1,52 @@
+group = "com.healthcar"
+version = "0.0.1-SNAPSHOT"
+
+repositories {
+	mavenCentral()
+}
+
 plugins {
 	java
 	id("org.springframework.boot") version "3.1.4"
 	id("io.spring.dependency-management") version "1.1.3"
+	id("com.github.spotbugs") version "5.1.4"
 }
 
-group = "com.healthcar"
-version = "0.0.1-SNAPSHOT"
+dependencies {
+	implementation("org.springframework.boot:spring-boot-starter")
+	compileOnly("org.projectlombok:lombok")
+	annotationProcessor("org.projectlombok:lombok")
+
+	//test dependencies
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	//spotbugs plugin dependencies
+	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0")
+	spotbugsPlugins("com.mebigfatguy.sb-contrib:sb-contrib:7.4.7")
+}
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+sourceSets {
+	main {
+		java {
+			srcDir("src/main/java")
+		}
+		resources {
+			srcDir("src/main/resources")
+		}
+	}
+	test {
+		java {
+			srcDir("src/test/java")
+		}
+		resources {
+			srcDir("src/test/resources")
+		}
+	}
 }
 
 configurations {
@@ -17,17 +55,18 @@ configurations {
 	}
 }
 
-repositories {
-	mavenCentral()
-}
-
-dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
-	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.projectlombok:lombok")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-}
-
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.withType<Copy>() {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.spotbugsMain {
+	reports.create("html") {
+		required.set(true)
+		outputLocation.set(file("${project.projectDir}/build/reports/spotbugs.html"))
+		setStylesheet("fancy-hist.xsl")
+	}
 }
