@@ -10,6 +10,7 @@ plugins {
 	id("org.springframework.boot") version "3.1.4"
 	id("io.spring.dependency-management") version "1.1.3"
 	id("com.github.spotbugs") version "5.1.4"
+	id ("checkstyle")
 }
 
 dependencies {
@@ -23,6 +24,9 @@ dependencies {
 	//spotbugs plugin dependencies
 	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0")
 	spotbugsPlugins("com.mebigfatguy.sb-contrib:sb-contrib:7.4.7")
+
+	//checkstyle
+	checkstyle("com.puppycrawl.tools:checkstyle:8.42")
 }
 
 java {
