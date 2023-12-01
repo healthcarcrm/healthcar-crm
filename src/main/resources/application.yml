@@ -1,2 +1,20 @@
 server:
   port: 8080
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    username: root
+    password: root
+    url: jdbc:postgresql://postgres:5432/postgres
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: /database/liquibase/master.xml
+    url: jdbc:postgresql://postgres:5432/postgres
+    user: root
+    password: root
+    driver-class-name: org.postgresql.Driver
+
