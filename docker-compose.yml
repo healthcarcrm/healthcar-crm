@@ -1,6 +1,6 @@
 version: '3'
 services:
-  healthcar-rmi:
+  healthcar-crm:
     container_name: healthcar-back
     build:
       context: .
