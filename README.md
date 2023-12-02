@@ -8,3 +8,8 @@ docker build --tag=healthcar:latest .
 
 Run docker compose:
 docker-compose up
+
+or
+
+./start.sh
+./start.bat

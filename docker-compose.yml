@@ -1,6 +1,6 @@
 version: '3'
 services:
-  healthcar-rmi:
+  healthcar-crm:
     container_name: healthcar-back
     build:
       context: .
@@ -8,6 +8,16 @@ services:
     image: healthcar
     ports:
       - 8080:8080
+    networks:
+      - bridge-network
+  postgres:
+    container_name: postgres
+    image: postgres:16
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
     networks:
       - bridge-network
 networks:

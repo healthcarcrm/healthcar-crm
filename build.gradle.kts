@@ -15,11 +15,15 @@ plugins {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.liquibase:liquibase-core:4.24.0")
 	compileOnly("org.projectlombok:lombok")
+	implementation("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")
 
 	//test dependencies
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("com.h2database:h2:1.3.148")
 
 	//spotbugs plugin dependencies
 	spotbugsPlugins("com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0")
