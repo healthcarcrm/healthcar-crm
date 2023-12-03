@@ -28,3 +28,15 @@ or
 * Api doc link /api-doc
 * Swagger link /swagger-ui/index.html
 ```
+
+
+## Actuator Info
+### Actuator is run on port `8081`
+```
+* Shutdown application  curl -X POST localhost:8081/actuator/shutdown
+* Healthcheck endpoint /actuator/health
+* Info endpoint /actuator/info
+* Liquibase info endpoint /actuator/liquibase
+* Metrics endpoint /actuator/metrics
+* Prometheus metrics endpoint /actuator/prometheus
+```

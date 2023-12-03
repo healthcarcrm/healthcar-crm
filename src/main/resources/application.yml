@@ -1,10 +1,10 @@
 server:
   port: 8080
+  shutdown: graceful
 
 spring:
   banner:
     location: banner.txt
-
   jpa:
     properties:
       hibernate:
@@ -20,8 +20,27 @@ spring:
     user: root
     password: root
     driver-class-name: org.postgresql.Driver
+  lifecycle:
+    timeout-per-shutdown-phase: 1m
 
 springdoc:
   api-docs:
     path: /api-doc
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+          - info
+          - health
+          - liquibase
+          - metrics
+          - shutdown
+          - prometheus
+  server:
+    port: 8081
 
