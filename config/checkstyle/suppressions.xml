@@ -9,16 +9,6 @@
     <suppress checks="LineLength|TypeName|JavadocType|MissingJavadocMethod|AbbreviationAsWordInNameCheck|TypeName|VariableDeclarationUsageDistance|DesignForExtension"
               files="src/test/java"/>
 
-    <!-- Third party code -->
-    <suppress checks=".*" files="editor-spine-viewer/src/main/java/com/badlogic/"/>
-    <suppress checks=".*" files="editor-spine-viewer/src/main/java/com/esotericsoftware/"/>
 
-    <!--  Legacy editors  -->
-    <suppress checks=".*" files="editor-composition-fx/|editor-particle/"/>
-    <suppress checks="FinalParameters|SingleLineJavadoc|JavadocTagContinuationIndentation|JavadocType|MissingJavadocType|MissingJavadocMethod|AbbreviationAsWordInName|TypeName|SummaryJavadoc|DesignForExtension|NonEmptyAtclauseDescription"
-              files="editor-platform/|editor-ui/"/>
-
-    <!-- Property definitions -->
-    <suppress checks="OneStatementPerLine" files=".*PropertyDefinition.java"/>
-    <suppress checks="Indentation" files=".*?/properties/definition/.*"/>
+    <suppress checks="HideUtilityClassConstructor" files=".ApplicationStarter.java"/>
 </suppressions>

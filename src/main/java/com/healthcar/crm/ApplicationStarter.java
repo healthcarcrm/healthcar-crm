@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @see org.springframework.boot.autoconfigure.SpringBootApplication
  */
 @SpringBootApplication
-@SuppressWarnings("HideUtilityClassConstructor")
 public class ApplicationStarter {
     public static void main(final String[] args) {
         SpringApplication.run(ApplicationStarter.class, args);
