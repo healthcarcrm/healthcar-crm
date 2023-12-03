@@ -2,6 +2,9 @@ server:
   port: 8080
 
 spring:
+  banner:
+    location: banner.txt
+
   jpa:
     properties:
       hibernate:
@@ -17,4 +20,8 @@ spring:
     user: root
     password: root
     driver-class-name: org.postgresql.Driver
+
+springdoc:
+  api-docs:
+    path: /api-doc
 

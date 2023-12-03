@@ -20,6 +20,9 @@ dependencies {
 	compileOnly("org.projectlombok:lombok")
 	implementation("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")
+	
+	//openapi
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 
 	//test dependencies
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
