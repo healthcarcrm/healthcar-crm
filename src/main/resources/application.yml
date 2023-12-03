@@ -12,11 +12,11 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://postgres:5432/postgres
     driver-class-name: org.postgresql.Driver
   liquibase:
     change-log: /database/liquibase/master.xml
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://postgres:5432/postgres
     user: root
     password: root
     driver-class-name: org.postgresql.Driver
