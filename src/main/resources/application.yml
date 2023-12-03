@@ -40,6 +40,7 @@ management:
           - liquibase
           - metrics
           - shutdown
+          - prometheus
   server:
     port: 8081
 

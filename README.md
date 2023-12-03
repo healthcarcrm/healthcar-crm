@@ -37,4 +37,6 @@ or
 * Healthcheck endpoint /actuator/health
 * Info endpoint /actuator/info
 * Liquibase info endpoint /actuator/liquibase
+* Metrics endpoint /actuator/metrics
+* Prometheus metrics endpoint /actuator/prometheus
 ```
