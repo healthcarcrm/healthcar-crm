@@ -1,5 +1,6 @@
 version: '3'
 services:
+
   healthcar-crm:
     container_name: healthcar-back
     build:
@@ -8,8 +9,10 @@ services:
     image: healthcar
     ports:
       - 8080:8080
+      - 8081:8081
     networks:
       - bridge-network
+
   postgres:
     container_name: postgres
     image: postgres:16
@@ -20,6 +23,30 @@ services:
       POSTGRES_PASSWORD: root
     networks:
       - bridge-network
+
+  prometheus:
+    image: prom/prometheus:v2.44.0
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - bridge-network
+
+  grafana:
+    image: grafana/grafana:9.5.2
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    volumes:
+      - ./monitoring/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      # pre-saved database (grafana.db) with micrometer dashboard
+      - ./monitoring/grafana/provisioning/database/grafana.db:/var/lib/grafana/grafana.db
+    networks:
+      - bridge-network
+
 networks:
   bridge-network:
     driver: bridge
